@@ -1,0 +1,333 @@
+/* App.css */
+:root {
+  --orange: #f4b183;
+  --text-dark: #1a1a1ae3;
+  --text-light: #666;
+  --white: #ffffff;
+  --light-gray: #f8f9fa;
+  --dark-bg: #121212d8;
+  --accent-yellow: #fdd02cc9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  color: var(--text-dark);
+  overflow: hidden;
+}
+
+
+.portfolio-container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.snap-section {
+  min-height: 100vh; 
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 2rem;
+}
+
+
+.hero,
+.contact {
+  background-color: var(--white);
+  overflow: hidden;
+}
+
+.hero::before,
+.contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      circle at 50% 65%,
+      rgba(244, 176, 131, 0.423),
+      transparent 32%
+    ),
+    radial-gradient(circle at 55% 35%, rgba(255, 214, 64, 0.3), transparent 28%),
+    radial-gradient(
+      circle at 40% 75%,
+      rgba(255, 190, 140, 0.18),
+      transparent 30%
+    );
+  filter: blur(35px);
+  transform: scale(1.38);
+  animation: heroGlow 4s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero > *,
+.contact > * {
+  position: relative;
+  z-index: 1;
+}
+
+.about {
+  background-color: var(--light-gray);
+}
+.experience {
+  background-color: var(--white);
+}
+.projects {
+  background-color: #f8f7f0;
+}
+
+
+.hero-title {
+  font-size: clamp(3rem, 10vw, 5rem);
+  letter-spacing: -3px;
+  margin: 50px;
+  color: var(--accent-yellow);
+  text-align: center;
+}
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 50px;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1000px;
+  width: 100%;
+  text-align: left;
+  gap: 90px;
+}
+
+.profile-photo img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.text-bubble {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  line-height: 1.6;
+  max-width: 50%;
+}
+
+.text-bubble h2 {
+  color: var(--orange);
+  text-align: center;
+}
+
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.exp-bubble {
+  background: var(--white);
+  padding: 0.8rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  border: 2px solid var(--orange);
+  text-align: left;
+}
+
+.exp-bubble h4 {
+  color: var(--orange);
+}
+
+.section-title {
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.project-card {
+  background: var(--white);
+  padding: 0.8rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.project-card p {
+  font-size: 15px;
+}
+
+.project-links {
+  margin-top: 1rem;
+}
+.project-links a {
+  margin-right: 1rem;
+  color: var(--orange);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.project-links a:hover {
+  color: #e38140;
+}
+
+
+.contact-card {
+  text-align: center;
+}
+.email-link {
+  font-size: clamp(1.2rem, 5vw, 1.5rem);
+  color: var(--orange);
+  text-decoration: none;
+  display: block;
+  margin: 1rem 0;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.social-links a {
+  margin: 0 1rem;
+  color: var(--orange);
+  text-decoration: underline;
+  transition: 0.3s;
+}
+
+.social-links a:hover,
+.email-link:hover {
+  color: #e38140;
+}
+
+
+.scroll-hint {
+  font-size: 11px;
+  position: absolute;
+  bottom: 10px;
+  text-decoration: none;
+  color: rgba(145, 145, 145, 0.8);
+  font-weight: 600;
+  padding: 8px 16px;
+  border: 1.5px solid rgba(145, 145, 145, 0.5);
+  border-radius: 50px;
+  animation: float 2.5s ease-in-out infinite;
+  transition: 0.3s;
+}
+
+.scroll-hint:hover {
+  color: var(--text-light);
+  border: 1.5px solid var(--text-light);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes heroGlow {
+  0% {
+    transform: scale(1.35) translate3d(-4%, 2%, 0);
+  }
+  100% {
+    transform: scale(1.45) translate3d(4%, -3%, 0);
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .about-container {
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+  .profile-photo img {
+    width: 250px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  body {
+    overflow: auto; 
+  }
+
+  .portfolio-container {
+    scroll-snap-type: none; 
+    height: auto;
+  }
+
+  .snap-section {
+    height: auto;
+    min-height: 100vh;
+    padding: 4rem 1.5rem; 
+    scroll-snap-align: none;
+  }
+
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .experience-grid,
+  .project-grid {
+    grid-template-columns: 1fr; 
+  }
+
+  .hero-title {
+    margin: 20px 0;
+  }
+
+  .scroll-hint {
+    display: none; 
+  }
+
+  .section-title {
+    transform: none;
+    text-align: center;
+  }
+}
