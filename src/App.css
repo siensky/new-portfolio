@@ -21,7 +21,6 @@ body {
   overflow: hidden;
 }
 
-
 .portfolio-container {
   height: 100vh;
   overflow-y: scroll;
@@ -30,7 +29,7 @@ body {
 }
 
 .snap-section {
-  min-height: 100vh; 
+  min-height: 100vh;
   height: 100vh;
   width: 100%;
   scroll-snap-align: start;
@@ -42,7 +41,6 @@ body {
   position: relative;
   padding: 2rem;
 }
-
 
 .hero,
 .contact {
@@ -89,7 +87,6 @@ body {
   background-color: #f8f7f0;
 }
 
-
 .hero-title {
   font-size: clamp(3rem, 10vw, 5rem);
   letter-spacing: -3px;
@@ -107,7 +104,6 @@ body {
   margin-left: 150px;
   margin-right: 150px;
 }
-
 
 .about-container {
   display: flex;
@@ -143,7 +139,6 @@ body {
   text-align: center;
 }
 
-
 .experience-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -173,7 +168,6 @@ body {
   text-align: center;
   margin-top: 3rem;
 }
-
 
 .project-grid {
   display: grid;
@@ -214,7 +208,6 @@ body {
   color: #e38140;
 }
 
-
 .contact-card {
   text-align: center;
 }
@@ -239,7 +232,6 @@ body {
 .email-link:hover {
   color: #e38140;
 }
-
 
 .scroll-hint {
   font-size: 11px;
@@ -279,7 +271,6 @@ body {
   }
 }
 
-
 @media (max-width: 1024px) {
   .about-container {
     gap: 2rem;
@@ -290,32 +281,49 @@ body {
   }
 }
 
-
 @media (max-width: 768px) {
   body {
-    overflow: auto; 
+    overflow: auto;
   }
 
   .portfolio-container {
-    scroll-snap-type: none; 
+    scroll-snap-type: none;
     height: auto;
   }
 
   .snap-section {
     height: auto;
     min-height: 100vh;
-    padding: 4rem 1.5rem; 
+    padding: 4rem 1.5rem;
     scroll-snap-align: none;
+  }
+
+  .hero-subtitle {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    padding: 0 10px;
+    font-size: 1.1rem;
+    margin-top: 30px;
   }
 
   .about-container {
     flex-direction: column;
     text-align: center;
+    gap: 1.5rem;
+  }
+
+  .text-bubble {
+    max-width: 100%;
+    width: 100%;
+    padding: 1.5rem;
+    margin: 0 auto;
+    text-align: left;
   }
 
   .experience-grid,
   .project-grid {
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
   }
 
   .hero-title {
@@ -323,7 +331,7 @@ body {
   }
 
   .scroll-hint {
-    display: none; 
+    display: none;
   }
 
   .section-title {
