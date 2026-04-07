@@ -51,8 +51,7 @@ export const projects = [
   },
   {
     name: "Vinkatalog vanilla JavaScript",
-    description:
-      "Ett responsivt webbprojekt byggt med HTML, CSS och vanilla JavaScript som en del av en bootcamp på Chas Academy. Fokus låg på att fördjupa förståelsen för grunderna i frontendutveckling utan ramverk, med särskild hänsyn till tillgänglighet enligt WCAG och användarvänlig design. Webbplatsen innehåller dynamiskt innehåll hämtat från ett API samt en mobilanpassad navigationsmeny med hamburgerfunktion.",
+    description: "Ett responsivt webbprojekt byggt med HTML, CSS och vanilla JavaScript inom en bootcamp på Chas Academy. Fokus låg på grunderna i frontend utan ramverk, med hänsyn till WCAG och användarvänlig design. Webbplatsen använder API-data och har en mobilanpassad hamburgermeny.",
     github: "https://https://github.com/siensky/examinationsuppgift",
     live: "https://wines-bice.vercel.app/index.html",
   },
