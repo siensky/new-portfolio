@@ -55,4 +55,10 @@ export const projects = [
     github: "https://https://github.com/siensky/examinationsuppgift",
     live: "https://wines-bice.vercel.app/index.html",
   },
+  {
+    name: "Kommer snart: Automatiserat faktureringssystem",
+    description:
+      "Jag bygger just nu ett fullstack-system som automatiserar hela fakturaflödet: engångs- och återkommande fakturor, OCR-baserad betalningsmatchning, PDF + e-postutskick, påminnelser efter förfallodatum samt kundportal och admin-gränssnitt. Målet är ett skalbart system som minskar manuellt arbete och förbättrar betalningsuppföljning.",
+
+  },
 ];
