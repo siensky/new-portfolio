@@ -1,124 +1,147 @@
 import "./App.css";
-import Navbar from "./components/Navbar";
-import { projects, work, education } from "./portfolioData";
+import {
+  profile,
+  about,
+  facts,
+  projects,
+  education,
+  work,
+  type ExperienceEntry,
+} from "./portfolioData";
+
+const pad = (n: number) => String(n).padStart(3, "0");
+
+function ExpItem({ item }: { item: ExperienceEntry }) {
+  return (
+    <div className="exp-item">
+      <p className="exp-head">
+        <span className="exp-role">{item.title}</span>
+        <span className="exp-at"> @ </span>
+        <span className="exp-company">{item.org}</span>
+      </p>
+      {item.description && <p className="exp-desc">{item.description}</p>}
+      <span className="exp-date">{item.year}</span>
+    </div>
+  );
+}
 
 function App() {
   return (
     <div className="portfolio-container">
-      <Navbar />
+      {/* HERO */}
+      <header className="hero">
+        <span className="status">
+          <span className="status-dot" aria-hidden="true" />
+          {profile.status}
+        </span>
+        <h1 className="hero-title">
+          Sienna <span className="hero-title-last">Lansky.</span>
+        </h1>
+        <p className="hero-sub">
+          <strong>{profile.tagline.lead}</strong>
+          {profile.tagline.rest}
+        </p>
+      </header>
 
-      {/* SECTION 1: HOME */}
-      <section id="home" className="snap-section hero">
-        <div className="content">
-          <h1 className="hero-title">Sienna Lansky</h1>
-          <p className="hero-subtitle">
-          Fullstack JavaScript-student som bygger moderna applikationer och tycker om att lära sig nytt
-          </p>
-          <p>Söker LIA praktik till hösten 2026!</p>
+      {/* ABOUT */}
+      <section className="section" id="about">
+        <div className="card">
+          <span className="eyebrow eyebrow-accent">About me</span>
+          <p className="about-lead">{about.lead}</p>
+          <p className="about-body">{about.body}</p>
         </div>
-        <a href="#about" className="scroll-hint">
-          Läs mer om mig ↓
-        </a>
-      </section>
 
-      {/* SECTION 2: ABOUT */}
-      <section id="about" className="snap-section about">
-        <div className="about-container">
-          <div className="text-bubble">
-            <h2>Om mig</h2>
-            <p>
-              Jag är en 25-årig fullstackstudent bosatt i södra Stockholm som
-              gillar problemlösning och att ständigt lära mig nya saker. Med
-              bred arbetslivserfarenhet har jag vant mig vid att ta ansvar,
-              samarbeta och snabbt anpassa mig till nya miljöer. Jag studerar
-              idag Fullstack JavaScript på Chas Academy och har som mål att
-              starta en karriär inom utveckling. De senaste åren har jag
-              fokuserat mycket på att resa, vilket har gett mig värdefulla
-              perspektiv som jag tar med mig framåt. Till hösten söker jag en
-              LIA-plats där jag kan fortsätta utvecklas och ta mina första steg
-              i branschen.
-            </p>
-          </div>
-        </div>
-        <a href="#experience" className="scroll-hint">
-          Mina erfarenheter ↓
-        </a>
-      </section>
-
-      {/* SECTION 3: EXPERIENCE */}
-      <section id="experience" className="snap-section experience">
-        <div className="experience-grid">
-          <div className="experience-column">
-            <h3>Utbildning</h3>
-            {education.map((education, i) => (
-              <div key={i} className="exp-bubble">
-                <h4>{education.name} </h4>
-                <p>{education.description}</p>
-                <b>{education.year}</b>
-              </div>
-            ))}
-          </div>
-          <div className="experience-column">
-            <h3>Jobb</h3>
-            {work.map((work, i) => (
-              <div key={i} className="exp-bubble">
-                <h4>{work.name}</h4>
-                <p>{work.description}</p>
-                <b>{work.year}</b>
-              </div>
-            ))}
-          </div>
-        </div>
-        <a href="#projects" className="scroll-hint">
-          Mina projekt ↓
-        </a>
-      </section>
-
-      {/* SECTION 4: PROJECTS */}
-      <section id="projects" className="snap-section projects">
-        <h2 className="section-title">Mina Projekt</h2>
-        <div className="project-grid">
-          {projects.map((project, i) => (
-            <div key={i} className="project-card">
-              <h3>{project.name}</h3>
-              <p>{project.description}</p>
-              <div className="project-links">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
-                <a
-                  href={project.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Live Demo
-                </a>
-              </div>
+        <div className="card facts-card">
+          {facts.map((f) => (
+            <div className="fact" key={f.label}>
+              <span className="eyebrow">{f.label}</span>
+              <span className="fact-value">{f.value}</span>
             </div>
           ))}
         </div>
-        <a href="#contact" className="scroll-hint">
-          Kontakta mig ↓
-        </a>
       </section>
 
-      {/* SECTION 5: CONTACT */}
-      <section id="contact" className="snap-section contact">
-        <h1 className="section-title">Kontakta mig</h1>
+      {/* PROJECTS */}
+      <section className="section" id="projects">
+        <div className="section-head">
+          <h2>Selected projects</h2>
+          <span className="section-count">
+            [{pad(1)} — {pad(projects.length)}]
+          </span>
+        </div>
+
+        {projects.map((p) => (
+          <article className="project" key={p.name}>
+            <div className="project-top">
+              <span className="project-mark" aria-hidden="true">
+                <span className="project-mark-glyph" />
+              </span>
+              <span className="project-tech">{p.tech.join("  /  ")}</span>
+            </div>
+            <h3 className="project-name">{p.name}</h3>
+            <p className="project-body">{p.description}</p>
+            <div className="project-divider" />
+            {p.ongoing ? (
+              <span className="project-links project-ongoing">Work in progress</span>
+            ) : (
+              <div className="project-links">
+                {p.github && (
+                  <a href={p.github} target="_blank" rel="noopener noreferrer">
+                    GitHub ↗
+                  </a>
+                )}
+                {p.live && (
+                  <a href={p.live} target="_blank" rel="noopener noreferrer">
+                    Live ↗
+                  </a>
+                )}
+              </div>
+            )}
+          </article>
+        ))}
+      </section>
+
+      {/* EXPERIENCE */}
+      <section className="section" id="experience">
+        <div className="section-head">
+          <h2>Background</h2>
+        </div>
+
+        <div className="exp-group">
+          <span className="eyebrow">Education</span>
+          {education.map((e) => (
+            <ExpItem key={e.org} item={e} />
+          ))}
+        </div>
+
+        <div className="exp-group">
+          <span className="eyebrow">Work</span>
+          {work.map((w) => (
+            <ExpItem key={w.org} item={w} />
+          ))}
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section className="section" id="contact">
         <div className="contact-card">
-          <a href="mailto:siennalansky@gmail.com" className="email-link">
-            siennalansky@gmail.com
+          <h2>Let's take it further.</h2>
+          <p>{profile.contactText}</p>
+          <a className="email-btn" href={`mailto:${profile.email}`}>
+            {profile.email}
           </a>
-          <div className="social-links">
-            <a href="#">LinkedIn</a>
-            <a href="#">GitHub</a>
+          <div className="contact-social">
+            <a href={profile.github} target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
           </div>
         </div>
       </section>
+
+      <footer className="footer">© 2026 Sienna Lansky</footer>
     </div>
   );
 }
