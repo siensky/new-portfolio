@@ -6,7 +6,7 @@ export const profile = {
     rest: " Building modern web applications with a focus on thoughtful architecture and interfaces that feel effortless to use.",
   },
   contactText:
-    "I'm looking for a full-stack developer role where I can build, learn and genuinely contribute — ideally on a team that cares about craft and wants to grow together.",
+    "I'm looking for a full-stack developer role where I can build, learn and genuinely contribute.",
   email: "siennalansky@gmail.com",
   github: "https://github.com/siensky",
   linkedin: "#",
@@ -14,7 +14,7 @@ export const profile = {
 
 export const about = {
   lead: "I'm working hard to become the best full-stack developer I can be. I'm curious by nature, I like picking up new tools and ideas, and I look forward to the experiences and lessons that come with every new project.",
-  body: "I'm 25, based in southern Stockholm, and studying Full-Stack JavaScript at Chas Academy. The years before my studies taught me to take responsibility, work well with others and settle quickly into new environments — and a year of travelling gave me a broader perspective that I bring into the code. Now I'm looking for a role where I can keep building, contribute from day one and keep growing as a developer.",
+  body: "I'm 25, based in southern Stockholm, and studying Full-Stack JavaScript at Chas Academy. This year I got to work as a backend developer on a real client project — a CRM and order system for Hälsogruppen — building access control, third-party integrations and tests alongside a live team. The years before my studies taught me to take responsibility, work well with others and settle quickly into new environments, and a year of travelling gave me a broader perspective that I bring into the code. Now I'm looking for a role where I can keep building, contribute from day one and keep growing as a developer.",
 };
 
 export const facts = [
@@ -45,12 +45,18 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    name: "Spa app with web shop",
-    tech: ["React", "Vite", "Node"],
+    name: "Invoicing Platform",
+    tech: ["Bun", "Fastify", "Python", "React", "PostgreSQL", "RabbitMQ", "Docker"],
     description:
-      "A spa application with an integrated web shop, booking system and cart. Built to give users a smooth experience all the way from booking a treatment to buying products online.",
-    github: "https://github.com/siensky/glowspa",
-    live: "https://glowspa.vercel.app/",
+      "A multi-tenant invoicing platform with isolated company accounts, separate React frontends for businesses and customers, and four backend services split across TypeScript/Bun/Fastify and Python/FastAPI. Includes OCR-based payment matching, recurring invoices, and BankID and Stripe payments, backed by PostgreSQL and RabbitMQ with a transactional outbox and idempotency for reliable processing. Covered by unit and end-to-end tests running in a Dockerized GitHub Actions pipeline with type checking and database migration checks.",
+    github: "https://github.com/siensky/faktureringssystemet",
+  },
+  {
+    name: "Snabbmat",
+    tech: ["Bun", "PostgreSQL", "RabbitMQ", "React", "Docker"],
+    description:
+      "An event-driven food-ordering platform built with microservices and separate React interfaces for customers, kitchen staff and admins — covering the full flow from cart and simulated payment to preparation and pickup. Uses JWT for staff roles, Redis caching, and RabbitMQ for order events and email notifications, with unit and end-to-end tests running in GitHub Actions.",
+    github: "https://github.com/siensky/snabbmat",
   },
   {
     name: "Library – backend API",
@@ -59,6 +65,14 @@ export const projects: Project[] = [
       "A backend API for a library system with full CRUD for books and authors. Authentication with Auth0, role-based access and a complete lending system for borrowing and returning books.",
     github: "https://github.com/siensky/library",
     live: "https://library-production-911d.up.railway.app/",
+  },
+  {
+    name: "Spa app with web shop",
+    tech: ["React", "Vite", "Node"],
+    description:
+      "A spa application with an integrated web shop, booking system and cart. Built to give users a smooth experience all the way from booking a treatment to buying products online.",
+    github: "https://github.com/siensky/glowspa",
+    live: "https://glowspa.vercel.app/",
   },
   {
     name: "Library in PHP",
@@ -74,13 +88,6 @@ export const projects: Project[] = [
       "A responsive web project built with HTML, CSS and vanilla JavaScript during a bootcamp at Chas Academy. Focused on frontend fundamentals without a framework, with attention to WCAG and user-friendly design. Fetches data from an API and has a mobile-friendly menu.",
     github: "https://github.com/siensky/examinationsuppgift",
     live: "https://wines-bice.vercel.app/",
-  },
-  {
-    name: "Automated invoicing system",
-    tech: ["Fullstack", "OCR", "PDF"],
-    description:
-      "A full-stack system that automates the entire invoicing flow: one-off and recurring invoices, OCR-based payment matching, PDF and email dispatch, post-due reminders, and a customer and admin portal. The goal is a scalable system that reduces manual work and improves payment follow-up.",
-    ongoing: true,
   },
 ];
 
@@ -108,6 +115,13 @@ export const education: ExperienceEntry[] = [
 ];
 
 export const work: ExperienceEntry[] = [
+  {
+    org: "Hälsogruppen · via Leetcode",
+    title: "Backend Developer",
+    description:
+      "Backend developer on a CRM and order system for a freelance client. Built role-based access control, superadmin features and protected routes in Bun/Fastify, worked with PostgreSQL in a layered architecture, and integrated payments (Capway), shipping (PostNord) and file storage (S3). Wrote unit and end-to-end tests and took part in code reviews.",
+    year: "Jun — Sep 2026",
+  },
   {
     org: "Riddermark Bil",
     title: "Buyer, Salesperson & Administrator",
