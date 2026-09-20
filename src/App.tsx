@@ -73,9 +73,6 @@ function App() {
         {projects.map((p) => (
           <article className="project" key={p.name}>
             <div className="project-top">
-              <span className="project-mark" aria-hidden="true">
-                <span className="project-mark-glyph" />
-              </span>
               <span className="project-tech">{p.tech.join("  /  ")}</span>
             </div>
             <h3 className="project-name">{p.name}</h3>
@@ -125,7 +122,7 @@ function App() {
       {/* CONTACT */}
       <section className="section" id="contact">
         <div className="contact-card">
-          <h2>Let's take it further.</h2>
+          <h2>Let's get in touch.</h2>
           <p>{profile.contactText}</p>
           <a className="email-btn" href={`mailto:${profile.email}`}>
             {profile.email}
